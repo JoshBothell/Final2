@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="87">
+ <tileset firstgid="1" source="terrainTiles_default.tsx"/>
+ <tileset firstgid="41" source="allSprites_default.tsx"/>
+ <layer id="1" name="ground" width="30" height="20">
+  <data encoding="csv">
+11,11,11,1,1,11,1,1,2,11,1,1,11,1,1,11,1,2,1,1,1,1,11,1,11,11,11,11,1,1,
+11,1,1,11,1,11,11,1,2,11,11,11,1,1,1,1,11,2,1,11,11,11,1,11,11,1,11,1,11,11,
+1,11,1,1,11,1,11,1,2,1,1,11,11,1,11,1,1,2,1,1,1,11,11,11,11,1,11,1,11,1,
+1,1,1,1,11,11,11,11,2,1,11,1,1,11,1,1,11,2,1,11,11,11,11,1,11,1,11,11,11,11,
+1,11,1,11,1,1,1,1,2,11,1,11,1,1,11,11,1,2,11,11,1,11,1,1,11,11,11,11,1,1,
+11,1,11,1,1,11,1,11,2,1,11,11,1,11,1,1,11,2,11,1,1,1,11,1,11,11,11,11,11,1,
+11,11,1,11,11,11,11,11,4,3,3,3,3,3,3,3,3,6,3,3,3,3,3,3,15,11,11,1,11,11,
+11,11,11,11,11,1,11,11,2,1,1,1,1,1,11,11,1,11,11,1,11,1,11,1,2,1,11,11,1,11,
+11,11,11,1,1,11,11,11,2,11,1,11,11,11,1,11,1,1,11,11,1,1,11,1,2,11,11,1,11,1,
+11,1,1,1,11,1,11,1,2,1,1,11,11,1,11,1,11,11,11,11,11,11,1,1,2,11,11,1,1,11,
+11,11,1,1,1,1,1,1,2,11,11,1,11,1,1,1,11,11,1,1,1,1,1,11,2,1,11,1,1,1,
+1,11,11,1,1,1,11,1,2,1,1,1,11,1,1,1,1,1,1,1,11,11,1,1,2,1,11,1,1,1,
+1,11,11,1,1,11,11,1,2,11,1,11,1,11,1,1,1,1,11,1,1,11,11,1,2,11,11,11,1,1,
+3,3,3,3,3,3,3,3,12,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,13,3,3,3,3,3,
+11,11,1,1,1,11,1,11,2,11,1,11,1,11,11,1,11,1,11,1,1,1,11,1,2,1,1,11,11,1,
+11,1,1,1,11,1,11,1,2,1,11,1,11,11,11,1,1,11,11,11,1,11,1,11,2,11,11,1,11,11,
+11,11,11,1,11,1,11,1,2,1,11,1,11,11,11,11,11,11,1,11,1,11,1,1,2,1,11,1,11,11,
+11,11,11,1,11,11,1,1,2,1,1,1,1,11,1,11,11,1,1,1,11,11,1,11,2,1,11,1,11,1,
+1,1,1,11,1,1,11,1,2,1,1,1,11,1,1,1,1,1,1,1,11,1,1,1,2,1,11,11,1,1,
+11,1,1,11,1,1,1,11,2,1,1,11,1,11,11,1,11,1,1,1,1,1,11,1,2,11,11,1,1,11
+</data>
+ </layer>
+ <layer id="3" name="Trees" width="30" height="20">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,97,97,0,0,0,97,97,0,97,97,0,0,0,0,0,97,97,97,0,0,0,97,97,0,0,
+0,0,0,0,0,0,97,0,0,0,0,0,0,0,97,0,0,0,0,0,97,0,97,97,0,0,0,97,97,0,
+97,97,0,0,0,0,97,0,0,0,97,0,0,0,97,0,0,0,97,0,0,0,0,97,97,0,0,0,0,0,
+0,97,97,0,97,97,97,0,0,0,97,97,0,0,0,0,0,0,97,97,0,0,0,97,0,0,0,97,97,0,
+0,0,97,0,97,0,0,0,0,0,0,97,97,0,0,0,0,0,0,97,97,0,0,0,0,0,97,97,0,0,
+0,0,97,0,97,97,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,
+0,0,0,0,0,97,0,0,0,0,0,0,97,97,97,97,97,0,0,0,0,0,0,0,0,0,97,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,97,0,0,0,97,0,0,0,97,97,0,0,
+0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,0,0,0,97,0,97,0,0,0,0,0,0,0,0,
+0,97,97,0,0,97,0,0,0,0,0,97,0,0,97,0,0,0,0,0,0,0,0,0,0,0,0,97,97,0,
+0,0,97,97,97,97,0,0,0,0,97,97,0,0,0,97,0,0,0,0,97,97,0,0,0,0,97,97,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,97,0,0,0,97,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,97,0,0,0,0,0,0,0,0,97,0,0,0,0,0,97,97,0,0,0,0,0,97,0,0,0,
+0,97,97,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,0,97,0,0,97,0,0,0,97,97,0,0,
+0,0,0,0,0,0,97,0,0,0,0,97,97,0,0,0,97,97,97,0,0,0,97,97,0,0,0,97,0,0,
+0,0,0,0,0,97,97,0,0,0,97,0,0,0,0,0,0,97,97,0,0,0,0,97,0,0,0,97,0,0,
+0,97,0,0,0,0,97,97,0,0,0,0,0,0,0,97,97,0,0,0,0,0,97,97,0,0,97,0,0,0,
+0,0,0,0,97,97,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,97,97,0
+</data>
+ </layer>
+ <objectgroup id="4" name="obstacles">
+  <object id="11" name="tree" x="0" y="192" width="128" height="64"/>
+  <object id="12" name="tree" x="64" y="256" width="128" height="64"/>
+  <object id="13" name="tree" x="128" y="320" width="64" height="128"/>
+  <object id="14" name="tree" x="320" y="64" width="128" height="64"/>
+  <object id="15" name="tree" x="384" y="128" width="64" height="192"/>
+  <object id="16" name="tree" x="256" y="256" width="128" height="64"/>
+  <object id="17" name="tree" x="256" y="320" width="64" height="128"/>
+  <object id="18" name="tree" x="320" y="384" width="64" height="128"/>
+  <object id="19" name="tree" x="64" y="640" width="128" height="64"/>
+  <object id="20" name="tree" x="128" y="704" width="256" height="64"/>
+  <object id="21" name="tree" x="320" y="640" width="64" height="64"/>
+  <object id="22" name="tree" x="640" y="0" width="64" height="128"/>
+  <object id="23" name="tree" x="704" y="64" width="64" height="64"/>
+  <object id="24" name="tree" x="640" y="192" width="64" height="128"/>
+  <object id="28" name="tree" x="704" y="256" width="64" height="128"/>
+  <object id="29" name="tree" x="768" y="320" width="64" height="64"/>
+  <object id="30" name="tree" x="832" y="64" width="128" height="64"/>
+  <object id="31" name="tree" x="896" y="128" width="64" height="128"/>
+  <object id="32" name="tree" x="1152" y="192" width="64" height="128"/>
+  <object id="33" name="tree" x="1216" y="256" width="64" height="128"/>
+  <object id="34" name="tree" x="1280" y="320" width="64" height="64"/>
+  <object id="35" name="tree" x="1280" y="64" width="64" height="128"/>
+  <object id="36" name="tree" x="1344" y="64" width="128" height="64"/>
+  <object id="37" name="tree" x="1408" y="128" width="128" height="64"/>
+  <object id="38" name="tree" x="1472" y="192" width="64" height="128"/>
+  <object id="39" name="tree" x="1536" y="192" width="64" height="64"/>
+  <object id="40" name="tree" x="1664" y="64" width="128" height="64"/>
+  <object id="41" name="tree" x="1728" y="128" width="128" height="64"/>
+  <object id="42" name="tree" x="1728" y="256" width="128" height="64"/>
+  <object id="43" name="tree" x="1664" y="320" width="128" height="64"/>
+  <object id="44" name="tree" x="1664" y="384" width="64" height="192"/>
+  <object id="45" name="tree" x="1728" y="512" width="64" height="64"/>
+  <object id="46" name="tree" x="1728" y="640" width="128" height="64"/>
+  <object id="47" name="tree" x="1664" y="704" width="128" height="64"/>
+  <object id="48" name="tree" x="1408" y="512" width="64" height="64"/>
+  <object id="49" name="tree" x="1344" y="576" width="64" height="64"/>
+  <object id="50" name="tree" x="1280" y="704" width="128" height="64"/>
+  <object id="51" name="tree" x="1408" y="768" width="64" height="64"/>
+  <object id="52" name="tree" x="1152" y="768" width="64" height="64"/>
+  <object id="53" name="tree" x="1216" y="576" width="64" height="64"/>
+  <object id="54" name="tree" x="1152" y="512" width="64" height="64"/>
+  <object id="55" name="tree" x="1024" y="512" width="64" height="64"/>
+  <object id="56" name="tree" x="768" y="448" width="320" height="64"/>
+  <object id="57" name="tree" x="704" y="576" width="64" height="192"/>
+  <object id="58" name="tree" x="640" y="704" width="64" height="64"/>
+  <object id="59" name="tree" x="896" y="640" width="64" height="64"/>
+  <object id="60" name="tree" x="960" y="704" width="64" height="64"/>
+  <object id="61" name="tree" x="832" y="768" width="64" height="64"/>
+  <object id="62" name="tree" x="832" y="896" width="64" height="128"/>
+  <object id="63" name="tree" x="704" y="1024" width="128" height="64"/>
+  <object id="64" name="tree" x="640" y="1088" width="64" height="64"/>
+  <object id="65" name="tree" x="384" y="1024" width="64" height="192"/>
+  <object id="66" name="tree" x="448" y="1152" width="64" height="64"/>
+  <object id="67" name="tree" x="320" y="1088" width="64" height="64"/>
+  <object id="68" name="tree" x="256" y="896" width="64" height="64"/>
+  <object id="69" name="tree" x="64" y="960" width="128" height="64"/>
+  <object id="70" name="tree" x="64" y="1152" width="64" height="64"/>
+  <object id="71" name="tree" x="256" y="1216" width="128" height="64"/>
+  <object id="72" name="tree" x="1024" y="1024" width="192" height="64"/>
+  <object id="73" name="tree" x="1088" y="1088" width="128" height="64"/>
+  <object id="74" name="tree" x="960" y="1152" width="128" height="64"/>
+  <object id="75" name="tree" x="1216" y="896" width="128" height="64"/>
+  <object id="76" name="tree" x="1216" y="960" width="64" height="64"/>
+  <object id="77" name="tree" x="1408" y="960" width="64" height="128"/>
+  <object id="78" name="tree" x="1472" y="1024" width="64" height="192"/>
+  <object id="79" name="tree" x="1408" y="1152" width="64" height="64"/>
+  <object id="80" name="tree" x="1664" y="896" width="64" height="128"/>
+  <object id="81" name="tree" x="1728" y="960" width="64" height="192"/>
+  <object id="82" name="tree" x="1664" y="1152" width="64" height="128"/>
+  <object id="83" name="tree" x="1728" y="1216" width="128" height="64"/>
+  <object id="84" name="player" x="512" y="384" width="64" height="64"/>
+ </objectgroup>
+</map>
