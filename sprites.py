@@ -1,5 +1,6 @@
 import pygame as pg
 from settings import *
+from os import path
 from random import uniform
 from tilemap import collide_hit_rect
 vec = pg.math.Vector2
@@ -9,7 +10,7 @@ vec = pg.math.Vector2
 def draw_player_health(surf, x, y, pct):
     if pct < 0:
         pct = 0
-    BAR_LENGTH = 100
+    BAR_LENGTH = 200
     BAR_HEIGHT = 20
     fill = pct * BAR_LENGTH
     outline_rect = pg.Rect(x, y, BAR_LENGTH, BAR_HEIGHT)
@@ -22,6 +23,7 @@ def draw_player_health(surf, x, y, pct):
         col = RED
     pg.draw.rect(surf, col, fill_rect)
     pg.draw.rect(surf, WHITE, outline_rect, 2)
+
 
 def collide_with_walls(sprite, group, dir):
     if dir == 'x':
@@ -104,7 +106,7 @@ class Mob(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.hit_rect = MOB_HIT_RECT.copy()
         self.hit_rect.center = self.rect.center
-        self.pos = vec(x, y) * TILESIZE
+        self.pos = vec(x, y)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
         self.rect.center = self.pos
@@ -128,6 +130,9 @@ class Mob(pg.sprite.Sprite):
         collide_with_walls(self, self.game.walls, 'y')
         self.rect.center = self.hit_rect.center
         if self.health <= 0:
+            expl = Explosion(self.game, self.pos, 'lg')
+            self.game.mob_explosion.play()
+            self.game.all_sprites.add(expl)
             self.kill()
 
     def draw_health(self):
@@ -162,6 +167,7 @@ class Bullet(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
         self.image = game.bullet_img
+        game.shoot_sound.play()
         self.image = pg.transform.rotate(self.image, rot)
         self.rect = self.image.get_rect()
         self.pos = vec(pos)
@@ -193,10 +199,68 @@ class Wall(pg.sprite.Sprite):
         self.rect.y = y * TILESIZE
 
 
+class GunPowerup(pg.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.groups = game.all_sprites, game.powerups
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.image = game.pwr_img
+        self.rect = self.image.get_rect()
+        self.x = x
+        self.y = y
+        self.rect.x = x * TILESIZE
+        self.rect.y = y * TILESIZE
+
+
+class HealthPowerup(pg.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.groups = game.all_sprites, game.powerups
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.image = game.pwr_img
+        self.rect = self.image.get_rect()
+        self.x = x
+        self.y = y
+        self.rect.x = x * TILESIZE
+        self.rect.y = y * TILESIZE
+
+    def health_up(self):
+        self.game.player.health += 50
+        if self.game.player.health >= PLAYER_HEALTH:
+            self.game.player.health = PLAYER_HEALTH
+
+
+class Explosion(pg.sprite.Sprite):
+    def __init__(self, game, center, size):
+        self.groups = game.all_sprites
+        pg.sprite.Sprite.__init__(self)
+        self.game = game
+        self.size = size
+        self.image = self.game.explosion_anim[self.size][0]
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.frame = 0
+        self.last_update = pg.time.get_ticks()
+        self.frame_rate = 50
+
+    def update(self):
+        now = pg.time.get_ticks()
+        if now - self.last_update > self.frame_rate:
+            self.last_update = now
+            self.frame += 1
+            if self.frame == len(self.game.explosion_anim[self.size]):
+                self.kill()
+            else:
+                center = self.rect.center
+                self.image = self.game.explosion_anim[self.size][self.frame]
+                self.rect = self.image.get_rect()
+                self.rect.center = center
+
+
 class Obstacle(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
         self.group = game.walls
-        pg.sprite.Sprite.__init__(self, self.groups)
+        pg.sprite.Sprite.__init__(self, self.group)
         self.game = game
         self.rect = pg.Rect(x, y, w, h)
         self.x = x

@@ -2,6 +2,7 @@ import pygame as pg
 from settings import *
 import pytmx
 
+
 def collide_hit_rect(one, two):
     return one.hit_rect.colliderect(two.rect)
 

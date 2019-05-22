@@ -37,15 +37,19 @@ BARREL_OFFSET = vec(30, 0)
 # gun settings
 BULLET_IMG = 'bulletRed1_outline.png'
 BULLET_SPEED = 500
-BULLET_LIFETIME = 1000
+BULLET_LIFETIME = 2000
 MOB_BULLET_RATE = 1000
 BULLET_RATE = 500
 KICKBACK = 0
 GUN_SPREAD = 5
 BULLET_DAMAGE = 20
+PLAYER_DAMAGE = 30
 
 # mob settings
 MOB_IMG = 'tank_dark.png'
 MOB_SPEED = 150
 MOB_HIT_RECT = pg.Rect(0, 0, 30, 30)
 MOB_HEALTH = 100
+
+# powerup settings
+REPAIR_IMG = 'tanks_crateRepair.png'

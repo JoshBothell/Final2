@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="87">
+<map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="96">
  <tileset firstgid="1" source="terrainTiles_default.tsx"/>
  <tileset firstgid="41" source="allSprites_default.tsx"/>
  <layer id="1" name="ground" width="30" height="20">
@@ -121,6 +121,14 @@
   <object id="81" name="tree" x="1728" y="960" width="64" height="192"/>
   <object id="82" name="tree" x="1664" y="1152" width="64" height="128"/>
   <object id="83" name="tree" x="1728" y="1216" width="128" height="64"/>
-  <object id="84" name="player" x="512" y="384" width="64" height="64"/>
+  <object id="84" name="player" x="528" y="400" width="32" height="32"/>
+  <object id="88" name="mob" x="1552" y="400" width="32" height="32"/>
+  <object id="89" name="tree" x="1920" y="0" width="16" height="1280"/>
+  <object id="90" name="tree" x="-16" y="1280" width="1952" height="16"/>
+  <object id="91" name="tree" x="-16" y="0" width="16" height="1280"/>
+  <object id="92" name="tree" x="-16" y="-16" width="1952" height="16"/>
+  <object id="93" name="mob" x="1552" y="848" width="32" height="32"/>
+  <object id="94" name="mob" x="528" y="848" width="32" height="32"/>
+  <object id="95" name="mob" x="1296" y="1168" width="32" height="32"/>
  </objectgroup>
 </map>
