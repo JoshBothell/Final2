@@ -45,7 +45,6 @@ def collide_with_walls(sprite, group, dir):
             sprite.vel.y = 0
             sprite.hit_rect.centery = sprite.pos.y
 
-
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
         self.groups = game.all_sprites
@@ -61,6 +60,8 @@ class Player(pg.sprite.Sprite):
         self.rot = 0
         self.last_shot = 0
         self.health = PLAYER_HEALTH
+        self.bullet_rate = BULLET_RATE
+        self.power_time = 0
 
     def get_keys(self):
         self.rot_speed = 0
@@ -76,12 +77,17 @@ class Player(pg.sprite.Sprite):
             self.vel = vec(-PLAYER_SPEED / 2, 0).rotate(-self.rot)
         if keys[pg.K_SPACE]:
             now = pg.time.get_ticks()
-            if now - self.last_shot > BULLET_RATE:
+            if now - self.last_shot > self.bullet_rate:
                 self.last_shot = now
                 dir = vec(1, 0).rotate(-self.rot)
                 pos = self.pos + BARREL_OFFSET.rotate(-self.rot)
                 Bullet(self.game, pos, dir, self.rot, "Player")
                 self.vel = vec(-KICKBACK, 0).rotate(-self.rot)
+
+    def boost(self):
+        self.game.score += 10
+        self.game.player.bullet_rate = BOOST_BULLET_RATE
+        self.power_time = pg.time.get_ticks()
 
     def update(self):
         self.get_keys()
@@ -95,6 +101,8 @@ class Player(pg.sprite.Sprite):
         self.hit_rect.centery = self.pos.y
         collide_with_walls(self, self.game.walls, 'y')
         self.rect.center = self.hit_rect.center
+        if pg.time.get_ticks() - self.power_time > BOOST_TIME:
+            self.game.player.bullet_rate = BULLET_RATE
 
 
 class Mob(pg.sprite.Sprite):
@@ -134,6 +142,8 @@ class Mob(pg.sprite.Sprite):
             self.game.mob_explosion.play()
             self.game.all_sprites.add(expl)
             self.kill()
+            self.game.mob_total -= 1
+            self.game.score += 50
 
     def draw_health(self):
         if self.health > 60:
@@ -203,13 +213,19 @@ class GunPowerup(pg.sprite.Sprite):
     def __init__(self, game, x, y):
         self.groups = game.all_sprites, game.powerups
         pg.sprite.Sprite.__init__(self, self.groups)
+        self.type = "boost"
         self.game = game
-        self.image = game.pwr_img
+        self.image = game.boost_img
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        self.rect.x = x * TILESIZE
-        self.rect.y = y * TILESIZE
+        self.rect.x = x
+        self.rect.y = y
+        self.power_time = 0
+
+
+
+
 
 
 class HealthPowerup(pg.sprite.Sprite):
@@ -217,15 +233,17 @@ class HealthPowerup(pg.sprite.Sprite):
         self.groups = game.all_sprites, game.powerups
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
-        self.image = game.pwr_img
+        self.image = game.repair_img
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        self.rect.x = x * TILESIZE
-        self.rect.y = y * TILESIZE
+        self.rect.x = x
+        self.rect.y = y
+        self.type = "repair"
 
     def health_up(self):
-        self.game.player.health += 50
+        self.game.score += 10
+        self.game.player.health += REPAIR_AMOUNT
         if self.game.player.health >= PLAYER_HEALTH:
             self.game.player.health = PLAYER_HEALTH
 

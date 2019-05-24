@@ -27,7 +27,7 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 WALL_IMG = 'treeGreen_large.png'
 
 # player settings
-PLAYER_HEALTH = 500
+PLAYER_HEALTH = 300
 PLAYER_SPEED = 250
 PLAYER_ROT_SPEED = 250
 PLAYER_IMG = 'tank_red.png'
@@ -53,3 +53,7 @@ MOB_HEALTH = 100
 
 # powerup settings
 REPAIR_IMG = 'tanks_crateRepair.png'
+REPAIR_AMOUNT = 200
+BOOST_IMG = 'tanks_crateAmmo.png'
+BOOST_TIME = 5000
+BOOST_BULLET_RATE = 150
